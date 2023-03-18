@@ -3,8 +3,9 @@ import { useState } from 'react';
 import OirDataFilesPicker from '../components/OirDataFilesPicker';
 import CscSelector from '../components/CscSelector';
 import { parseAndCleanData } from '../lib/parseAndCleanData';
-import getMermaidStringForCsc from '../lib/getMermaidStringForCsc/getMermaidStringForCsc';
+import getMermaidStringForCsc from '../lib/getMermaidStringForCsc';
 import Mermaid from '../components/Mermaid';
+import CscDataGrid from '@/components/CscDataGrid';
 
 export function Index() {
   const [cleanData, setCleanData] = useState({});
@@ -51,6 +52,7 @@ export function Index() {
           </button>
           {/* <pre>{mermaidString}</pre> */}
           <Mermaid chart={mermaidString} name="liens" config={{}} />
+          <CscDataGrid cscByCscKey={cscByCscKey} />
         </div>
       ) : (
         <OirDataFilesPicker handleData={handleData} />
